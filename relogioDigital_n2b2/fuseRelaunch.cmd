@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "C:/Xilinx/Projects/relogioDigital_n2b2/relogioDigital_n2b2_isim_beh.exe" -prj "C:/Xilinx/Projects/relogioDigital_n2b2/relogioDigital_n2b2_beh.prj" "work.relogioDigital_n2b2" 

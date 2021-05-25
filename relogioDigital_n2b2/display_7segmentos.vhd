@@ -23,15 +23,18 @@ USE IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 ENTITY display_7segmentos IS
-    PORT (
-        entrada_display_7segmentos : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+    PORT (        
+		  entrada_display_primeira_hora : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+		  entrada_display_segunda_hora : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+		  entrada_display_primeiro_minuto : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+		  entrada_display_segundo_minuto : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
 		  saida_display_7segmentos : OUT STD_LOGIC_VECTOR (6 DOWNTO 0)
     );
 END display_7segmentos;
 
 ARCHITECTURE Behavioral OF display_7segmentos IS
 BEGIN
-    WITH entrada_display_7segmentos SELECT
+    WITH entrada_display_primeira_hora SELECT
         saida_display_7segmentos <= "0000001" WHEN "0000", -- '0'
         "1001111" WHEN "0001", -- '1'
         "0010010" WHEN "0010", -- '2'

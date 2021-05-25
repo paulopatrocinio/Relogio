@@ -12,7 +12,8 @@
 ----------------------------------------------------------------------------------
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
-USE IEEE.NUMERIC_STD;
+USE IEEE.NUMERIC_STD.ALL;
+use ieee.std_logic_unsigned.all;
 --USE IEEE.STD_LOGIC_ARITH;
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -25,12 +26,16 @@ USE IEEE.NUMERIC_STD;
 
 ENTITY contador IS
     PORT (
-        primeira_hora : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
-		  segunda_hora : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
-		  primeiro_minuto : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
-		  segundo_minuto : IN STD_LOGIC_VECTOR (3 DOWNTO 0);        
-		  clock_contador : IN STD_LOGIC;
-        saida_contador : OUT STD_LOGIC_VECTOR (3 DOWNTO 0)		  
+        ph : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+		  sh : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+		  pm : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+		  sM : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+		  primeira_hora : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
+		  segunda_hora : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
+		  primeiro_minuto : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
+		  segundo_minuto : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
+		  clock_contador : IN STD_LOGIC
+        -- saida_contador : OUT STD_LOGIC_VECTOR (3 DOWNTO 0)		  
 		  );
 END contador;
 
@@ -44,21 +49,32 @@ SIGNAL count : integer :=1;
 SIGNAL clk : std_logic :='0';
 
 BEGIN
+	
 --	primeira_hora <= conv_std_logic_vector(HH1,4);
+--	
 --	segunda_hora <= conv_std_logic_vector(HH2,4);
 --	primeiro_minuto <= conv_std_logic_vector(MM1,4);
 --	segundo_minuto <= conv_std_logic_vector(MM2,4);
-	
-	
-	HH1 <= to_integer(unsigned(primeira_hora));
---	HH1 <= to_integer(signed(primeira_hora));
-	
-	
 
---	primeira_hora <= std_logic_vector(to_unsigned(HH1, 4));
---	segunda_hora <= std_logic_vector(to_unsigned(HH2, 4));
---	primeiro_minuto <= std_logic_vector(to_unsigned(MM1, 4));
---	segundo_minuto <= std_logic_vector(to_unsigned(MM2, 4));
+--signal sig1 : std_logic_vector(15 downto 0):=X"0123";--
+--signal sig2 : integer range 0 to 65535:=0;--
+--signal sig3 : integer range 0 to 65535:=456;--
+--signal sig4 : std_logic_vector(15 downto 0):=X"0000";--
+--    --To convert sig1-->sig2--
+--sig2<=conv_integer(sig1);--
+--    --To convert sig3-->sig4--
+--sig4<=conv_std_logic_vector(sig3,16);
+	
+--	primeira_hora <= conv_std_logic_vector(HH1,2);
+--	segunda_hora <= conv_std_logic_vector(HH2,4);
+--	primeiro_minuto <= conv_std_logic_vector(MM1,3);
+--	segundo_minuto <= conv_std_logic_vector(MM2,4);
+
+	primeira_hora <= std_logic_vector(to_unsigned(HH1, 4));
+	segunda_hora <= std_logic_vector(to_unsigned(HH2, 4));
+	primeiro_minuto <= std_logic_vector(to_unsigned(MM1, 4));
+	segundo_minuto <= std_logic_vector(to_unsigned(MM2, 4));
+	 
 	
     process(clock_contador)
   begin

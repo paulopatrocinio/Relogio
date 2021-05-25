@@ -26,27 +26,21 @@ ENTITY porta_registradora IS
     PORT (
         entrada_porta_registradora : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
         enable_registradora, clear_registradora: IN STD_LOGIC;
-		  -- clock_registradora: IN STD_LOGIC;
+		  clock_registradora: IN STD_LOGIC;
         saida_porta_registradora : OUT STD_LOGIC_VECTOR (3 DOWNTO 0)
 		  );
 END porta_registradora;
 
 ARCHITECTURE Behavioral OF porta_registradora IS
 BEGIN
-    PROCESS (enable_registradora, clear_registradora)
-    BEGIN        
+    PROCESS (clock_registradora, enable_registradora, clear_registradora)
+    BEGIN
+        IF (clock_registradora'event AND clock_registradora = '1') THEN
             IF clear_registradora = '1' THEN
                 saida_porta_registradora <= "0000";
             ELSIF enable_registradora = '1' THEN
                 saida_porta_registradora <= entrada_porta_registradora;
-            END IF;        
-				
---        IF (clock_registradora'event AND clock_registradora = '1') THEN
---            IF clear_registradora = '1' THEN
---                saida_porta_registradora <= "00";
---            ELSIF enable_registradora = '1' THEN
---                saida_porta_registradora <= entrada_porta_registradora;
---            END IF;
---        END IF;
+            END IF;
+        END IF;
     END PROCESS;
 END Behavioral;
