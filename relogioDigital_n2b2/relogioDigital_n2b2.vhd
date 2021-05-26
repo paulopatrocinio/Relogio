@@ -28,11 +28,9 @@ USE IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 ENTITY relogioDigital_n2b2 IS
     PORT (
-        entrada_registrador1 : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
---		  entrada_registrador2, entrada_registrador3, entrada_registrador4 : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
---		  display_primeira_hora, display_segunda_hora, display_primeiro_minuto, display_segundo_minuto : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+        entrada_bits_ent1 : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
         enable_registrador1, enable_registrador2, enable_registrador3, enable_registrador4, reset, clock: IN STD_LOGIC;
-        saida_bits_ent1 : OUT STD_LOGIC_VECTOR (6 DOWNTO 0)		  
+        saida_bits_ent1, saida_bits_ent2, saida_bits_ent3, saida_bits_ent4 : OUT STD_LOGIC_VECTOR (6 DOWNTO 0)		  
     );
 END relogioDigital_n2b2;
 
@@ -51,57 +49,42 @@ ARCHITECTURE Structural OF relogioDigital_n2b2 IS
 				entrada_display_segunda_hora : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
 				entrada_display_primeiro_minuto : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
 				entrada_display_segundo_minuto : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
-				saida_display_7segmentos : OUT STD_LOGIC_VECTOR (6 DOWNTO 0)
+				saida_display_primeira_hora : OUT STD_LOGIC_VECTOR (6 DOWNTO 0);
+				saida_display_segunda_hora : OUT STD_LOGIC_VECTOR (6 DOWNTO 0);
+				saida_display_primeiro_minuto : OUT STD_LOGIC_VECTOR (6 DOWNTO 0);
+				saida_display_segundo_minuto : OUT STD_LOGIC_VECTOR (6 DOWNTO 0)
         );
-    END COMPONENT;
-	 
---	 COMPONENT bin_hex
---        PORT (
---            bin : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
---				hex : OUT STD_LOGIC_VECTOR (6 DOWNTO 0)
---        );
---    END COMPONENT;
+    END COMPONENT;	 
 	 
 	 COMPONENT contador
         PORT (
-				ph : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
-				sh : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
-				pm : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
-				sm : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+				entrada_contador_h1 : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+				entrada_contador_h2 : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+				entrada_contador_m1 : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+				entrada_contador_m2 : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
             primeira_hora : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
 				segunda_hora : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
 				primeiro_minuto : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
 				segundo_minuto : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
 				clock_contador : IN STD_LOGIC
---				saida_contador : OUT STD_LOGIC_VECTOR (3 DOWNTO 0)
         );
     END COMPONENT;
 	 	 
-	 SIGNAL registrador1_contador : STD_LOGIC_VECTOR (3 DOWNTO 0);
-	 SIGNAL registrador2_contador : STD_LOGIC_VECTOR (3 DOWNTO 0);
-	 SIGNAL registrador3_contador : STD_LOGIC_VECTOR (3 DOWNTO 0);
-	 SIGNAL registrador4_contador : STD_LOGIC_VECTOR (3 DOWNTO 0);
-	 
-	 
-	 SIGNAL contador_display1 : STD_LOGIC_VECTOR (3 DOWNTO 0);
-	 SIGNAL contador_display2 : STD_LOGIC_VECTOR (3 DOWNTO 0);
-	 SIGNAL contador_display3 : STD_LOGIC_VECTOR (3 DOWNTO 0);
-	 SIGNAL contador_display4 : STD_LOGIC_VECTOR (3 DOWNTO 0);
-	 
-
-	 
+	 SIGNAL registrador1_contador, registrador2_contador, registrador3_contador, registrador4_contador : STD_LOGIC_VECTOR (3 DOWNTO 0);	 
+	 SIGNAL contador_display1, contador_display2, contador_display3, contador_display4 : STD_LOGIC_VECTOR (3 DOWNTO 0);
+	 	 
 BEGIN
-
-    registrador1 : porta_registradora PORT MAP(
-        entrada_porta_registradora => entrada_registrador1,
+	 
+	 registrador1 : porta_registradora PORT MAP(
+        entrada_porta_registradora => entrada_bits_ent1,
         enable_registradora => enable_registrador1,
         clear_registradora => reset,
         clock_registradora => clock,
         saida_porta_registradora => registrador1_contador
     );
-
-    registrador2 : porta_registradora PORT MAP(
-        entrada_porta_registradora => entrada_registrador1,
+	 
+	 registrador2 : porta_registradora PORT MAP(
+        entrada_porta_registradora => entrada_bits_ent1,
         enable_registradora => enable_registrador2,
         clear_registradora => reset,
         clock_registradora => clock,
@@ -109,7 +92,7 @@ BEGIN
     );
 	 
 	 registrador3 : porta_registradora PORT MAP(
-        entrada_porta_registradora => entrada_registrador1,
+        entrada_porta_registradora => entrada_bits_ent1,
         enable_registradora => enable_registrador3,
         clear_registradora => reset,
         clock_registradora => clock,
@@ -117,7 +100,7 @@ BEGIN
     );
 	 
 	 registrador4 : porta_registradora PORT MAP(
-        entrada_porta_registradora => entrada_registrador1,
+        entrada_porta_registradora => entrada_bits_ent1,
         enable_registradora => enable_registrador4,
         clear_registradora => reset,
         clock_registradora => clock,
@@ -125,23 +108,26 @@ BEGIN
     );
 	 	 
 	 contador1 : contador PORT MAP(
-		  ph => registrador1_contador,
-		  sh => registrador2_contador,
-		  pm => registrador3_contador,
-		  sm => registrador4_contador,
-        primeira_hora => contador_display1,
+		  entrada_contador_h1 => registrador1_contador,
+		  entrada_contador_h2 => registrador2_contador,
+		  entrada_contador_m1 => registrador3_contador,
+		  entrada_contador_m2 => registrador4_contador,
+		  primeira_hora => contador_display1,
 		  segunda_hora => contador_display2,
 		  primeiro_minuto => contador_display3,
 		  segundo_minuto => contador_display4,
 		  clock_contador => clock	  		  
     );
-
+	 	 
     display1_7segmentos : display_7segmentos PORT MAP(
         entrada_display_primeira_hora => contador_display1,
 		  entrada_display_segunda_hora => contador_display2,
 		  entrada_display_primeiro_minuto => contador_display3,
 		  entrada_display_segundo_minuto => contador_display4,
-		  saida_display_7segmentos => saida_bits_ent1		  
+		  saida_display_primeira_hora => saida_bits_ent1,
+		  saida_display_segunda_hora => saida_bits_ent2,
+		  saida_display_primeiro_minuto => saida_bits_ent3,
+		  saida_display_segundo_minuto => saida_bits_ent4		  
     );
 	 
 END Structural;
