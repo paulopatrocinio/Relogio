@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2021-05-27T20:49:42</DateModified>
+  <DateModified>2021-05-27T21:16:26</DateModified>
   <ModuleName>SD_relogioDigital_n2b2</ModuleName>
-  <SummaryTimeStamp>2021-05-27T18:12:46</SummaryTimeStamp>
+  <SummaryTimeStamp>2021-05-27T20:50:07</SummaryTimeStamp>
   <SavedFilePath>C:/Xilinx/Projects/relogioDigital_n2b2/iseconfig/SD_relogioDigital_n2b2.xreport</SavedFilePath>
   <ImplementationReportsDirectory>C:/Xilinx/Projects/relogioDigital_n2b2\</ImplementationReportsDirectory>
   <DateInitialized>2021-05-27T18:10:43</DateInitialized>
