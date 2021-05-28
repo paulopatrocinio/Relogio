@@ -1,1 +1,2 @@
 vhdtdtfi -prj relogioDigital_n2b2 -o C:/Xilinx/Projects/relogioDigital_n2b2/contador.tfi -module contador -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror -lib work binario_hex.vhd -lib work contador.vhd 
+vhdtdtfi -prj relogioDigital_n2b2 -o "C:/Xilinx/Projects/Nova pasta/contador.tfi" -module contador -template C:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror -lib work contador.vhd 

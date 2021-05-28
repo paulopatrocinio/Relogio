@@ -30,88 +30,86 @@ ENTITY contador IS
 		  entrada_contador_h2 : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
 		  entrada_contador_m1 : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
 		  entrada_contador_m2 : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
-		  primeira_hora : OUT STD_LOGIC_VECTOR (6 DOWNTO 0);
-		  segunda_hora : OUT STD_LOGIC_VECTOR (6 DOWNTO 0);
-		  primeiro_minuto : OUT STD_LOGIC_VECTOR (6 DOWNTO 0);
-		  segundo_minuto : OUT STD_LOGIC_VECTOR (6 DOWNTO 0);
+		  primeira_hora : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
+		  segunda_hora : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
+		  primeiro_minuto : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
+		  segundo_minuto : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
 		  clock_contador : IN STD_LOGIC;
 		  reset_contador : IN STD_LOGIC
         -- saida_contador : OUT STD_LOGIC_VECTOR (3 DOWNTO 0)		  
 		  );
 END contador;
 
-ARCHITECTURE Behavioral OF contador IS
+ARCHITECTURE Behavioral OF contador IS	
 
-	COMPONENT binario_hex
-        PORT (
-				Bin: in std_logic_vector(3 downto 0);
-				Hout: out std_logic_vector(6 downto 0)
-        );
-    END COMPONENT;
-
-	COMPONENT clk_div
-        PORT (
-				clk_50: in std_logic;
-				clk_1s: out std_logic
-        );
-    END COMPONENT;
   
-SIGNAL hora, minuto : integer;
-SIGNAL HH1, HH2, MM1, MM2 : STD_LOGIC_VECTOR (3 DOWNTO 0);
+SIGNAL hora1, hora2, minuto1, minuto2 : integer;
+--SIGNAL HH1, HH2, MM1, MM2 : STD_LOGIC_VECTOR (3 DOWNTO 0);
 -- SIGNAL count : integer :=1;
-SIGNAL clk : STD_LOGIC;
-
+--SIGNAL clk : STD_LOGIC;
+	
 BEGIN	 
 -- create_1s_clock: clk_div port map (clk_50 => clk, clk_1s => clk_1s); 
 
-	process(clk,reset_contador) 
+	process(clock_contador,reset_contador, entrada_contador_h1, entrada_contador_h2, entrada_contador_m1, entrada_contador_m2) 
 	 begin 
 -- fpga4student.com FPGA projects, VHDL projects, Verilog projects
 		if(reset_contador = '0') then
-			hora <= to_integer(unsigned(entrada_contador_h1))*10 + to_integer(unsigned(entrada_contador_h2));			
-			minuto <= to_integer(unsigned(entrada_contador_m1))*10 + to_integer(unsigned(entrada_contador_m2));			
-		elsif(rising_edge(clk)) then
-			minuto <= minuto + 1;
-			if(minuto >=59) then -- minute > 59 then hour increases
-				minuto <= 0;
-				hora <= hora + 1;
-				if(hora >= 24) then -- hour > 24 then set hour to 0
-					hora <= 0;
+			hora1 <= to_integer(unsigned(entrada_contador_h1));
+			hora2 <= to_integer(unsigned(entrada_contador_h2));
+			minuto1 <= to_integer(unsigned(entrada_contador_m1));
+			minuto2 <= to_integer(unsigned(entrada_contador_m2));
+		elsif(clock_contador = '1' and clock_contador'event) then
+			minuto2 <= minuto2 + 1;
+			if(minuto2 >=9) then -- minuto2 > 9 then minuto1 increases
+				minuto1 <= minuto1 + 1;
+				minuto2 <= 0;				
+				if(minuto1 >= 5) then -- minuto1 > 5 then set to 0 and increases hora2
+					hora2 <= hora2 + 1;
+					minuto1 <= 0;
+					if(hora2 >=9) then -- hora2 > 9 then set to 0 and increases hora1
+						hora1 <= hora1 + 1;
+						hora2 <= 0;					
+						if(hora1 >=1) then -- hora1 > 1 then set to 0
+							hora1 <= 0;
+						end if;
+					end if;
 				end if;
 			 end if;
 		 end if;
 	end process;
 	
-----------------------|
--- Conversion time ---|
-----------------------|
--- primeira_hora binary value
- HH1 <= x"2" when hora >=20 else
- x"1" when hora >=10 else
- x"0";
--- 7-Segment LED display of primeira_hora
-convert_hex_primeira_hora: binario_hex port map (Bin => HH1, Hout => primeira_hora);
+	process(reset_contador, hora1, hora2, minuto1, minuto2) 
+	 begin 
+		if(reset_contador = '0') then
+--			primeira_hora <= hora1;
+			primeira_hora <= std_logic_vector(to_unsigned(hora1, 4));
+--			segunda_hora <= hora2;
+			segunda_hora <= std_logic_vector(to_unsigned(hora2, 4));
+--			primeiro_minuto <=  minuto1;
+			primeiro_minuto <= std_logic_vector(to_unsigned(minuto1, 4));
+--			segundo_minuto <= minuto2;
+			segundo_minuto <= std_logic_vector(to_unsigned(minuto2, 4));
+		else
+			primeira_hora <= "0000";
+			segunda_hora <= "0000";
+			primeiro_minuto <=  "0000";
+			segundo_minuto <= "0000";			
+		end if;
+	end process;
+	
+			
 
--- segunda_hora binary value
- HH2 <= std_logic_vector(to_unsigned((hora - to_integer(unsigned(HH1))*10),4));
--- 7-Segment LED display of segunda_hora
-convert_hex_segunda_hora: binario_hex port map (Bin => HH2, Hout => segunda_hora);
+   
+-- This line demonstrates how to convert positive integers
 
--- primeiro_minuto binary value
- MM1 <= x"5" when minuto >= 50 else
- x"4" when minuto >= 40 else
- x"3" when minuto >= 30 else
- x"2" when minuto >= 20 else
- x"1" when minuto >= 10 else
- x"0";
--- 7-Segment LED display of primeiro_minuto
-convert_hex_primeiro_minuto: binario_hex port map(
-	Bin => MM1,
-	Hout => primeiro_minuto
-	);
--- segundo_minuto binary value
- MM2 <= std_logic_vector(to_unsigned((minuto - to_integer(unsigned(MM1))*10),4));
--- 7-Segment LED display of segundo_minuto
-convert_hex_segundo_minuto: binario_hex port map (Bin => MM2, Hout => segundo_minuto);
+ 
+-- This line demonstrates how to convert positive or negative integers
+--output_1b <= std_logic_vector(to_signed(input_1, output_1b'length));
+						  
+						  
+	
+	
+
 
 end Behavioral;

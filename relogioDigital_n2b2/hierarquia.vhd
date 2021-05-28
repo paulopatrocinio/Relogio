@@ -30,7 +30,8 @@ ENTITY hierarquia IS
     PORT (
         entrada_bits_ent1 : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
         enable_registrador1, enable_registrador2, enable_registrador3, enable_registrador4, fd_reset, fd_clock: IN STD_LOGIC;
-        saida_bits_ent1, saida_bits_ent2, saida_bits_ent3, saida_bits_ent4 : OUT STD_LOGIC_VECTOR (6 DOWNTO 0)		  
+        saida_bits_ent1 : OUT STD_LOGIC_VECTOR (6 DOWNTO 0);
+		  d1, d2, d3, d4 : OUT STD_LOGIC
     );
 END hierarquia;
 
@@ -65,17 +66,18 @@ ARCHITECTURE Structural OF hierarquia IS
 				entrada_contador_h2 : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
 				entrada_contador_m1 : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
 				entrada_contador_m2 : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
-            primeira_hora : OUT STD_LOGIC_VECTOR (6 DOWNTO 0);
-				segunda_hora : OUT STD_LOGIC_VECTOR (6 DOWNTO 0);
-				primeiro_minuto : OUT STD_LOGIC_VECTOR (6 DOWNTO 0);
-				segundo_minuto : OUT STD_LOGIC_VECTOR (6 DOWNTO 0);
+            primeira_hora : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
+				segunda_hora : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
+				primeiro_minuto : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
+				segundo_minuto : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
 				clock_contador : IN STD_LOGIC;
 				reset_contador : IN STD_LOGIC
         );
     END COMPONENT;
 	 	 
 	 SIGNAL registrador1_contador, registrador2_contador, registrador3_contador, registrador4_contador : STD_LOGIC_VECTOR (3 DOWNTO 0);	 
-	 SIGNAL contador_display1, contador_display2, contador_display3, contador_display4 : STD_LOGIC_VECTOR (6 DOWNTO 0);
+	 SIGNAL contador_display1, contador_display2, contador_display3, contador_display4 : STD_LOGIC_VECTOR (3 DOWNTO 0);
+	 
 	 	 
 BEGIN
 	 
@@ -124,26 +126,16 @@ BEGIN
 		  reset_contador => fd_reset
     );
 	 	 
-    display1_7segmentos : display_7segmentos PORT MAP(
---        entrada_display_primeira_hora => contador_display1,
---		  entrada_display_segunda_hora => contador_display2,
---		  entrada_display_primeiro_minuto => contador_display3,
---		  entrada_display_segundo_minuto => contador_display4,
---		  saida_display_primeira_hora => saida_bits_ent1,
---		  saida_display_segunda_hora => saida_bits_ent2,
---		  saida_display_primeiro_minuto => saida_bits_ent3,
---		  saida_display_segundo_minuto => saida_bits_ent4
-		  
-		  
+    display1_7segmentos : display_7segmentos PORT MAP(		  
 			clock => fd_clock,
 			entradaPrimeiraHora => contador_display1,
 			entradaSegundaHora => contador_display2,
 			entradaPrimeiroMinuto => contador_display3,
 			entradaSegundoMinuto => contador_display4,
---			dp1 =>
---			dp2 =>
---			dp3 =>
---			dp4 =>
+			dp1 => d1,
+			dp2 => d2,
+			dp3 => d3,
+			dp4 => d4,
 			saida7 => saida_bits_ent1
     );
 	 

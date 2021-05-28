@@ -1,0 +1,6 @@
+vhdl work "porta_registradora.vhd"
+vhdl work "display_7seg.vhd"
+vhdl work "contador.vhd"
+vhdl work "hierarquia.vhd"
+vhdl work "ASM_UC_RELOGIO.vhd"
+vhdl work "relogioDigital_n2b2.vhd"

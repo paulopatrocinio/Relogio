@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/Xilinx/Projects/relogioDigital_n2b2/SD_relogioDigital_n2b2.xst" -ofn "C:/Xilinx/Projects/relogioDigital_n2b2/SD_relogioDigital_n2b2.syr" 

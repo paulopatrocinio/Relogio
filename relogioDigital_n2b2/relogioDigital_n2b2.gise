@@ -21,8 +21,67 @@
 
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="relogioDigital_n2b2.xise"/>
 
-  <files xmlns="http://www.xilinx.com/XMLSchema"/>
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="SD_relogioDigital_n2b2.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="SD_relogioDigital_n2b2.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="SD_relogioDigital_n2b2.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="SD_relogioDigital_n2b2.ngr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="SD_relogioDigital_n2b2.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="SD_relogioDigital_n2b2.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="SD_relogioDigital_n2b2.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="SD_relogioDigital_n2b2.xst"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="SD_relogioDigital_n2b2_vhdl.prj"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="SD_relogioDigital_n2b2_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
 
-  <transforms xmlns="http://www.xilinx.com/XMLSchema"/>
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1622212462" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1622212462">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1622212462" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-7017982784080080281" xil_pn:start_ts="1622212462">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1622212462" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-3021653402401442640" xil_pn:start_ts="1622212462">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1622212462" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1622212462">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1622212462" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-2491018820811746459" xil_pn:start_ts="1622212462">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1622212462" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="2988080280822507185" xil_pn:start_ts="1622212462">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1622212462" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="5076768662579134586" xil_pn:start_ts="1622212462">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1622212495" xil_pn:in_ck="612920274104927526" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="8062577021786539747" xil_pn:start_ts="1622212462">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="SD_relogioDigital_n2b2.lso"/>
+      <outfile xil_pn:name="SD_relogioDigital_n2b2.ngc"/>
+      <outfile xil_pn:name="SD_relogioDigital_n2b2.ngr"/>
+      <outfile xil_pn:name="SD_relogioDigital_n2b2.prj"/>
+      <outfile xil_pn:name="SD_relogioDigital_n2b2.stx"/>
+      <outfile xil_pn:name="SD_relogioDigital_n2b2.syr"/>
+      <outfile xil_pn:name="SD_relogioDigital_n2b2.xst"/>
+      <outfile xil_pn:name="SD_relogioDigital_n2b2_vhdl.prj"/>
+      <outfile xil_pn:name="SD_relogioDigital_n2b2_xst.xrpt"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+  </transforms>
 
 </generated_project>

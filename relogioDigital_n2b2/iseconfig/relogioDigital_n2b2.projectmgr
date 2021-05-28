@@ -13,13 +13,13 @@
          <ClosedNode>/relogioDigital_n2b2 - Structural C:|Xilinx|Projects|relogioDigital_n2b2|relogioDigital_n2b2.vhd/contador1 - contador - Behavioral</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>display1_7segmentos - display_7segmentos - Behavioral (C:/Xilinx/Projects/relogioDigital_n2b2/display_7seg.vhd)</SelectedItem>
+         <SelectedItem>SD_relogioDigital_n2b2 - Behavioral (C:/Xilinx/Projects/relogioDigital_n2b2/relogioDigital_n2b2.vhd)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >4</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000205000000020000000000000000000000000200000064ffffffff000000810000000300000002000002050000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001f7000000020000000000000000000000000200000064ffffffff000000810000000300000002000001f70000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>display1_7segmentos - display_7segmentos - Behavioral (C:/Xilinx/Projects/relogioDigital_n2b2/display_7seg.vhd)</CurrentItem>
+      <CurrentItem>SD_relogioDigital_n2b2 - Behavioral (C:/Xilinx/Projects/relogioDigital_n2b2/relogioDigital_n2b2.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -27,13 +27,13 @@
          <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000151000000010000000100000000000000000000000064ffffffff000000810000000000000001000001510000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <ItemView guiview="File" >
       <ClosedNodes>
@@ -67,30 +67,35 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem>Synthesize - XST</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000151000000010000000100000000000000000000000064ffffffff000000810000000000000001000001510000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000140000000010000000100000000000000000000000064ffffffff000000810000000000000001000001400000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem>Synthesize - XST</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/SD_relogioDigital_n2b2 - Behavioral C:|Xilinx|Projects|Nova pasta|relogioDigital_n2b2.vhd</ClosedNode>
+         <ClosedNode>/SD_relogioDigital_n2b2 - Behavioral C:|Xilinx|Projects|Nova pasta|relogioDigital_n2b2.vhd/FD - hierarquia - Structural</ClosedNode>
+         <ClosedNode>/SD_relogioDigital_n2b2 - Behavioral C:|Xilinx|Projects|relogioDigital_n2b2|relogioDigital_n2b2.vhd/FD - hierarquia - Structural</ClosedNode>
          <ClosedNode>/relogioDigital_n2b2 - Structural C:|Xilinx|Projects|relogioDigital_n2b2|relogioDigital_n2b2.vhd/contador1 - contador - Behavioral</ClosedNode>
+         <ClosedNode>/tb_asm_uc - behavior C:|Xilinx|Projects|Nova pasta|tb_asm_uc.vhd</ClosedNode>
          <ClosedNode>/tb_contador - behavior C:|Xilinx|Projects|relogioDigital_n2b2|tb_contador.vhd</ClosedNode>
+         <ClosedNode>/tb_hierarquia - behavior C:|Xilinx|Projects|Nova pasta|tb_hierarquia.vhd</ClosedNode>
          <ClosedNode>/tb_relogioDigital_n2b2 - behavior C:|Xilinx|Projects|relogioDigital_n2b2|tb_relogioDigital_n2b2.vhd</ClosedNode>
          <ClosedNode>/tb_relogioDigital_n2b2 - behavior C:|Xilinx|Projects|relogioDigital_n2b2|tb_relogioDigital_n2b2.vhd/uut - relogioDigital_n2b2 - Structural/contador1 - contador - Behavioral</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>tb_relogioDigital_n2b2 - behavior (C:/Xilinx/Projects/relogioDigital_n2b2/tb_relogioDigital_n2b2.vhd)</SelectedItem>
+         <SelectedItem>Unassigned User Library Modules</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >5</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000021f000000020000000000000000000000000200000064ffffffff0000008100000003000000020000021f0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001f7000000020000000000000000000000000200000064ffffffff000000810000000300000002000001f70000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>tb_relogioDigital_n2b2 - behavior (C:/Xilinx/Projects/relogioDigital_n2b2/tb_relogioDigital_n2b2.vhd)</CurrentItem>
+      <CurrentItem>Unassigned User Library Modules</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -98,13 +103,13 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000151000000010000000100000000000000000000000064ffffffff000000810000000000000001000001510000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000011b0000011b01000000050100000002</SourceProcessView>
    <CurrentView>Implementation</CurrentView>
